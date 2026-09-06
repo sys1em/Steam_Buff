@@ -255,7 +255,7 @@
     "message": "ダウンロード完了後にシャットダウン"
   },
   "settings_feature_download_auto_shutdown_desc": {
-    "message": "ダウンロードキューの完了後、約30～60秒でコンピューターをシャットダウンします。"
+    "message": "ダウンロードキューの完了後、1分でコンピューターをシャットダウンします。"
   },
   "settings_feature_steam_news_translate_name": {
     "message": "Steamニュースポップアップ翻訳"
@@ -2964,6 +2964,76 @@
   },
   "steam_downloadShutdown_disabled": {
     "message": "自動シャットダウンはオフです"
+  },
+  "steam_downloadShutdown_notEnabled": {
+    "message": "自動シャットダウンは有効になっていません"
+  },
+  "steam_downloadShutdown_enabled": {
+    "message": "自動シャットダウン：有効"
+  },
+  "steam_downloadShutdown_eta": {
+    "message": "自動シャットダウン：$duration$後($time$)",
+    "placeholders": {
+      "duration": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_details": {
+    "message": "残りのダウンロード：$remaining$、現在の速度：$speed$",
+    "placeholders": {
+      "remaining": {
+        "content": "$1"
+      },
+      "speed": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_unavailable": {
+    "message": "自動シャットダウン：推定できません"
+  },
+  "steam_downloadShutdown_hours": {
+    "message": "時間"
+  },
+  "steam_downloadShutdown_minutes": {
+    "message": "分"
+  },
+  "steam_downloadShutdown_timeToday": {
+    "message": "$time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeDay": {
+    "message": "$day$日 $time$",
+    "placeholders": {
+      "day": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeMonth": {
+    "message": "$month$月$day$日 $time$",
+    "placeholders": {
+      "month": {
+        "content": "$1"
+      },
+      "day": {
+        "content": "$2"
+      },
+      "time": {
+        "content": "$3"
+      }
+    }
   },
   "steam_downloadShutdown_errorLog": {
     "message": "エラーログ: $message$",

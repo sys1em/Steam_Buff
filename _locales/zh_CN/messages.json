@@ -255,7 +255,7 @@
     "message": "下载完成自动关机"
   },
   "settings_feature_download_auto_shutdown_desc": {
-    "message": "下载队列完成后约延迟30-60秒后执行关机动作"
+    "message": "下载队列完成后延迟1分钟执行关机动作"
   },
   "settings_feature_steam_news_translate_name": {
     "message": "Steam 新闻弹窗翻译"
@@ -2964,6 +2964,76 @@
   },
   "steam_downloadShutdown_disabled": {
     "message": "已关闭自动关机"
+  },
+  "steam_downloadShutdown_notEnabled": {
+    "message": "自动关机未启用"
+  },
+  "steam_downloadShutdown_enabled": {
+    "message": "自动关机：已开启"
+  },
+  "steam_downloadShutdown_eta": {
+    "message": "自动关机：$duration$后($time$)",
+    "placeholders": {
+      "duration": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_details": {
+    "message": "剩余下载：$remaining$，当前速度：$speed$",
+    "placeholders": {
+      "remaining": {
+        "content": "$1"
+      },
+      "speed": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_unavailable": {
+    "message": "自动关机：暂无法估算"
+  },
+  "steam_downloadShutdown_hours": {
+    "message": "小时"
+  },
+  "steam_downloadShutdown_minutes": {
+    "message": "分钟"
+  },
+  "steam_downloadShutdown_timeToday": {
+    "message": "$time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeDay": {
+    "message": "$day$日 $time$",
+    "placeholders": {
+      "day": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeMonth": {
+    "message": "$month$月$day$日 $time$",
+    "placeholders": {
+      "month": {
+        "content": "$1"
+      },
+      "day": {
+        "content": "$2"
+      },
+      "time": {
+        "content": "$3"
+      }
+    }
   },
   "steam_downloadShutdown_errorLog": {
     "message": "错误日志：$message$",

@@ -21,7 +21,10 @@
   const LIBRARY_CUSTOM_NAME_PROGRESS = "__RickyLibraryCustomNameProgress";
   const DOWNLOAD_SURFACE_ROOT = "__RickyDownloadSurfaceHost";
   const DOWNLOAD_SURFACE_TOAST = "__RickyDownloadSurfaceToast";
+  const DOWNLOAD_TOOLBAR_ROOT = "__RickyDownloadToolbar";
+  const DOWNLOAD_TOOLBAR_MENU = "__RickyDownloadToolbarMenu";
   const DOWNLOAD_AUTO_SHUTDOWN_ROOT = "__Rickydownload-auto-shutdown-root";
+  const DOWNLOAD_AUTO_SHUTDOWN_STATUS = "__RickyDownloadAutoShutdownStatus";
   const NEWS_TRANSLATE_BUTTON_CLASS = "steam-buff-news-translate-button";
   const NEWS_TRANSLATE_ICON_CLASS = "steam-buff-news-translate-icon";
   const NEWS_TRANSLATE_DONE_CLASS = "steam-buff-news-translated";
@@ -152,6 +155,15 @@
       "--st-sdas-warning": cssVar("--st-color-warning"),
       "--st-sdas-danger": cssVar("--st-color-danger"),
       "--st-download-action-danger-bg": cssVar("--st-color-danger-alpha-12"),
+      // Steam CEF 顶部原生图标按钮的实测尺寸/颜色；菜单容器使用实体背景避免透出下载页内容。
+      "--st-download-toolbar-button-bg": "rgb(61, 68, 80)",
+      "--st-download-toolbar-button-bg-hover": "rgb(82, 89, 101)",
+      "--st-download-toolbar-button-border": "transparent",
+      "--st-download-toolbar-button-border-hover": "transparent",
+      "--st-download-toolbar-button-color": "rgb(220, 222, 223)",
+      "--st-download-toolbar-menu-bg": cssVar("--st-color-bg-body"),
+      "--st-download-toolbar-menu-border": cssVar("--st-color-border-normal"),
+      "--st-download-toolbar-menu-shadow": cssVar("--st-shadow-panel-menu"),
       "--st-sdas-gap": spacing.sm,
       "--st-sdas-toggle-pad-x": `calc(${spacing.sm} + ${spacing.xxs})`,
       "--st-sdas-toast-pad-y": `calc(${spacing.sm} + ${spacing.xxs})`,
@@ -745,7 +757,7 @@
       #${DOWNLOAD_SURFACE_ROOT} {
         position: fixed;
         top: 99px;
-        left: 4px;
+        right: 57px;
         z-index: 999999;
         height: auto;
         display: flex;
@@ -764,61 +776,172 @@
         align-items: center;
         height: 28px;
       }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_ROOT} {
+        position: relative;
         display: inline-flex;
         align-items: center;
+        width: 28px;
         height: 28px;
       }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_ROOT} .st-download-toolbar-button {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        padding: 6px;
+        border: 0;
+        border-radius: 2px;
+        background: var(--st-download-toolbar-button-bg);
+        color: var(--st-download-toolbar-button-color);
+        box-shadow: none;
+        font: inherit;
+        line-height: 1;
+        cursor: pointer;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_ROOT} .st-download-toolbar-button:hover {
+        border-color: var(--st-download-toolbar-button-border-hover);
+        background: var(--st-download-toolbar-button-bg-hover);
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_ROOT} .st-download-toolbar-button:focus-visible {
+        outline: 1px solid var(--st-download-toolbar-button-border-hover);
+        outline-offset: 1px;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_ROOT} .st-download-toolbar-icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} {
+        position: absolute;
+        top: 32px;
+        right: 0;
+        z-index: 1;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        min-width: 230px;
+        padding: 6px;
+        border: 1px solid var(--st-download-toolbar-menu-border);
+        border-radius: 4px;
+        background: var(--st-download-toolbar-menu-bg);
+        box-shadow: var(--st-download-toolbar-menu-shadow);
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU}[hidden] {
+        display: none !important;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-surface-slot {
+        display: inline-flex;
+        align-items: center;
+        width: 100%;
+        min-height: 28px;
+        height: auto;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} {
+        width: 100%;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle {
         position: relative;
         box-sizing: border-box;
         display: inline-flex;
         align-items: center;
         gap: var(--st-sdas-gap);
+        width: 100%;
         height: 28px;
         padding: 0 var(--st-sdas-toggle-pad-x);
         border: 1px solid var(--st-sdas-border);
-        border-top: 0;
         background: var(--st-sdas-bg);
         box-shadow: var(--st-sdas-shadow);
         cursor: pointer;
         user-select: none;
         white-space: nowrap;
       }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: var(--st-sdas-border);
-      }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle:hover {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle:hover {
         border-color: var(--st-sdas-border-hover);
         background: var(--st-sdas-bg-hover);
       }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle:hover::before {
-        background: var(--st-sdas-border-hover);
-      }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle input {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-toggle input {
         width: 14px;
         height: 14px;
         margin: 0;
         accent-color: var(--st-sdas-primary);
       }
-      #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-label {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_ROOT} .sdas-label {
         font-size: var(--st-sdas-font-size);
         line-height: 1;
         letter-spacing: 0;
       }
-      #${DOWNLOAD_SURFACE_ROOT} .st-download-batch-actions {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .sdas-tooltip {
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        z-index: 2;
+        box-sizing: border-box;
+        min-width: 230px;
+        max-width: min(360px, calc(100vw - 16px));
+        padding: 5px 8px;
+        border: 1px solid var(--st-sdas-border);
+        border-radius: 2px;
+        background: var(--st-sdas-bg);
+        color: var(--st-sdas-text);
+        box-shadow: var(--st-sdas-shadow);
+        font-family: var(--st-sdas-font);
+        font-size: var(--st-sdas-font-size);
+        line-height: var(--st-sdas-line-height);
+        pointer-events: none;
+        white-space: pre-line;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .sdas-tooltip[hidden] {
+        display: none !important;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_STATUS} {
+        position: fixed;
+        top: 83px;
+        left: 8px;
+        z-index: 1000000;
+        box-sizing: border-box;
+        display: block;
+        max-width: min(560px, calc(100vw - 16px));
+        padding: 5px 8px;
+        border: 1px solid var(--st-sdas-border);
+        border-radius: 2px;
+        background: var(--st-sdas-bg);
+        color: var(--st-sdas-text);
+        box-shadow: var(--st-sdas-shadow);
+        font-family: var(--st-sdas-font);
+        font-size: var(--st-sdas-font-size);
+        line-height: var(--st-sdas-line-height);
+        font-variant-numeric: tabular-nums;
+        pointer-events: none;
+        white-space: normal;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_STATUS}[hidden],
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_STATUS} .sdas-status-details[hidden] {
+        display: none !important;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_STATUS} .sdas-status-primary,
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_STATUS} .sdas-status-details {
+        overflow-wrap: anywhere;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_AUTO_SHUTDOWN_STATUS} .sdas-status-details {
+        margin-top: 2px;
+      }
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-batch-actions {
         display: inline-flex;
         align-items: center;
+        width: 100%;
         gap: 4px;
       }
-      #${DOWNLOAD_SURFACE_ROOT} .st-download-action {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-action {
         box-sizing: border-box;
+        flex: 1 1 0;
         height: 28px;
         min-width: 68px;
         padding: 0 10px;
@@ -833,19 +956,19 @@
         white-space: nowrap;
         cursor: pointer;
       }
-      #${DOWNLOAD_SURFACE_ROOT} .st-download-action:hover:not(:disabled) {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-action:hover:not(:disabled) {
         border-color: var(--st-sdas-border-hover);
         background: var(--st-sdas-bg-hover);
       }
-      #${DOWNLOAD_SURFACE_ROOT} .st-download-action:focus-visible {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-action:focus-visible {
         outline: 1px solid var(--st-sdas-border-hover);
         outline-offset: 1px;
       }
-      #${DOWNLOAD_SURFACE_ROOT} .st-download-action:disabled {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-action:disabled {
         cursor: default;
         opacity: 0.5;
       }
-      #${DOWNLOAD_SURFACE_ROOT} .st-download-action[data-action="remove-all"]:hover:not(:disabled) {
+      #${DOWNLOAD_SURFACE_ROOT} #${DOWNLOAD_TOOLBAR_MENU} .st-download-action[data-action="remove-all"]:hover:not(:disabled) {
         border-color: var(--st-sdas-danger);
         background: var(--st-download-action-danger-bg);
       }
@@ -881,7 +1004,7 @@
       @media (max-width: 1250px) {
         #${DOWNLOAD_SURFACE_ROOT} {
           top: 99px;
-          left: 4px;
+          right: 57px;
         }
         #${DOWNLOAD_SURFACE_TOAST} {
           top: 172px;

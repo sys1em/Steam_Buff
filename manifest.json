@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extName__",
-  "version": "1.1.36",
+  "version": "1.1.41",
   "description": "__MSG_extDescription__",
   "default_locale": "zh_CN",
   "author": "Ricky",
@@ -234,6 +234,7 @@
         "steam/runtime/surface-hosts.js",
         "steam/runtime/cleanup-stale.js",
         "steam/runtime/styles.js",
+        "steam/runtime/download-toolbar.js",
         "shared/utils/player-stats.js",
         "shared/utils/player-stats-ui.js",
         "steam/runtime/feature-registry.js",
@@ -243,6 +244,7 @@
         "vendor/fflate/*.js",
         "vendor/pinyin-pro/*.js",
         "images/ui/source-tip.svg",
+        "images/ui/download-actions.svg",
         "images/features/translate.svg"
       ],
       "matches": [

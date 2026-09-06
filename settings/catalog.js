@@ -910,7 +910,7 @@
         {
           id: "download-auto-shutdown",
           name: "下载完成自动关机",
-          desc: "下载队列完成后约延迟30-60秒后执行关机动作",
+          desc: "下载队列完成后延迟1分钟执行关机动作",
           help: "下载完成自动关机",
           area: "steam",
           enabled: true,

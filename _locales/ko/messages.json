@@ -255,7 +255,7 @@
     "message": "다운로드 후 종료"
   },
   "settings_feature_download_auto_shutdown_desc": {
-    "message": "다운로드 대기열이 완료된 후 약 30~60초 뒤에 컴퓨터를 종료합니다."
+    "message": "다운로드 대기열이 완료된 후 1분 뒤에 컴퓨터를 종료합니다."
   },
   "settings_feature_steam_news_translate_name": {
     "message": "Steam 뉴스 팝업 번역"
@@ -2964,6 +2964,76 @@
   },
   "steam_downloadShutdown_disabled": {
     "message": "자동 종료가 꺼져 있습니다"
+  },
+  "steam_downloadShutdown_notEnabled": {
+    "message": "자동 종료가 활성화되지 않았습니다"
+  },
+  "steam_downloadShutdown_enabled": {
+    "message": "자동 종료: 활성화됨"
+  },
+  "steam_downloadShutdown_eta": {
+    "message": "자동 종료: $duration$ 후($time$)",
+    "placeholders": {
+      "duration": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_details": {
+    "message": "남은 다운로드: $remaining$, 현재 속도: $speed$",
+    "placeholders": {
+      "remaining": {
+        "content": "$1"
+      },
+      "speed": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_unavailable": {
+    "message": "자동 종료: 예상할 수 없습니다"
+  },
+  "steam_downloadShutdown_hours": {
+    "message": "시간"
+  },
+  "steam_downloadShutdown_minutes": {
+    "message": "분"
+  },
+  "steam_downloadShutdown_timeToday": {
+    "message": "$time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeDay": {
+    "message": "$day$일 $time$",
+    "placeholders": {
+      "day": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeMonth": {
+    "message": "$month$월 $day$일 $time$",
+    "placeholders": {
+      "month": {
+        "content": "$1"
+      },
+      "day": {
+        "content": "$2"
+      },
+      "time": {
+        "content": "$3"
+      }
+    }
   },
   "steam_downloadShutdown_errorLog": {
     "message": "오류 로그: $message$",

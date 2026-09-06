@@ -2207,6 +2207,7 @@
           "steam/runtime/context-router.js",
           "steam/runtime/surface-hosts.js",
           "steam/runtime/styles.js",
+          "steam/runtime/download-toolbar.js",
           "steam/runtime/feature-registry.js",
           "steam/features/features.js",
           "steam/main.js",

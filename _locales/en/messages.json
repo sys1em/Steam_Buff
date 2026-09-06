@@ -255,7 +255,7 @@
     "message": "Shut Down After Downloads"
   },
   "settings_feature_download_auto_shutdown_desc": {
-    "message": "Shut down the computer about 30-60 seconds after the download queue finishes."
+    "message": "Shut down the computer one minute after the download queue finishes."
   },
   "settings_feature_steam_news_translate_name": {
     "message": "Steam News Pop-up Translation"
@@ -2964,6 +2964,76 @@
   },
   "steam_downloadShutdown_disabled": {
     "message": "Automatic shutdown is off"
+  },
+  "steam_downloadShutdown_notEnabled": {
+    "message": "Automatic shutdown is not enabled"
+  },
+  "steam_downloadShutdown_enabled": {
+    "message": "Automatic shutdown: enabled"
+  },
+  "steam_downloadShutdown_eta": {
+    "message": "Automatic shutdown: in $duration$ ($time$)",
+    "placeholders": {
+      "duration": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_details": {
+    "message": "Remaining download: $remaining$, current speed: $speed$",
+    "placeholders": {
+      "remaining": {
+        "content": "$1"
+      },
+      "speed": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_unavailable": {
+    "message": "Automatic shutdown: estimate unavailable"
+  },
+  "steam_downloadShutdown_hours": {
+    "message": "h"
+  },
+  "steam_downloadShutdown_minutes": {
+    "message": "m"
+  },
+  "steam_downloadShutdown_timeToday": {
+    "message": "$time$",
+    "placeholders": {
+      "time": {
+        "content": "$1"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeDay": {
+    "message": "$day$ $time$",
+    "placeholders": {
+      "day": {
+        "content": "$1"
+      },
+      "time": {
+        "content": "$2"
+      }
+    }
+  },
+  "steam_downloadShutdown_timeMonth": {
+    "message": "$month$/$day$ $time$",
+    "placeholders": {
+      "month": {
+        "content": "$1"
+      },
+      "day": {
+        "content": "$2"
+      },
+      "time": {
+        "content": "$3"
+      }
+    }
   },
   "steam_downloadShutdown_errorLog": {
     "message": "Error log: $message$",
